@@ -10,9 +10,7 @@ db = SQLAlchemy(metadata=metadata)
 
 class Bakery(db.Model, SerializerMixin):
     __tablename__ = 'bakeries'
-
     serialize_rules = ('-baked_goods.bakery',)
-
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, unique=True)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
